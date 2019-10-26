@@ -200,7 +200,8 @@ MoveCurrentWindowToDesktop(desktopNumber) {
     ;switchDesktopByNumber(desktopNumber)
     ;WinActivate, ahk_id activeHwnd
     
-    focusTheForemostWindow(CurrentDesktop)
+    ;focusTheForemostWindow(CurrentDesktop)
+    switchDesktopByNumber(desktopNumber)
 }
 
 closeWindow(){
