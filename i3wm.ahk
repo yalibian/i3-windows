@@ -210,6 +210,12 @@ closeWindow(){
     focusTheForemostWindow(CurrentDesktop)
 }
 
+quitWindow(){
+    ;quite current window
+    WinClose, A
+}
+
+
 toggleMaximize(){
     WinGet, maximized, MinMax, A
 
