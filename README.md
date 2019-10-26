@@ -1,7 +1,6 @@
-# window-mover
+# i3-windows
 
 Forked from [pmb6tz/windows-desktop-switcher](https://github.com/pmb6tz/windows-desktop-switcher) and [Depau/swin](https://github.com/Depau/swin)[jnoynaert/window-mover](https://github.com/jnoynaert/window-mover), to minimally reproduce some desirable i3/sway-like behavior on Windows.
-
 
 - Switch to virtual desktops 1-9 using `⊞-#` and backfill # of desktops if needed
 - Move active windows to virtual desktops 1-9 using `⊞-shift-#` and backfill desktops if needed
