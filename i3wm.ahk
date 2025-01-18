@@ -8,6 +8,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 ; Globals
 DesktopCount := 2        ; Windows starts with 2 desktops at boot
 CurrentDesktop := 1      ; Desktop count is 1-indexed (Microsoft numbers them this way)
+PreviousDesktop := 0     ; starts as a falsy value, gets set when switching desktops
 
 ; DLL
 hVirtualDesktopAccessor := DllCall("LoadLibrary", "Str", A_ScriptDir . "\VirtualDesktopAccessor.dll", "Ptr")
@@ -119,7 +120,7 @@ _createEnoughDesktops(targetDesktop) {
 _switchDesktopToTarget(targetDesktop)
 {
     ; Globals variables should have been updated via updateGlobalVariables() prior to entering this function
-    global CurrentDesktop, DesktopCount
+    global CurrentDesktop, DesktopCount, PreviousDesktop, ToggleDesktop
     
     ; Don't attempt to switch to an invalid desktop
     if (targetDesktop < 1) {
@@ -128,8 +129,14 @@ _switchDesktopToTarget(targetDesktop)
     }
 
     if (targetDesktop == CurrentDesktop) {
+        if (ToggleDesktop && PreviousDesktop) {
+            switchDesktopByNumber(PreviousDesktop)
+            return 
+        }
         return
     }
+
+    PreviousDesktop := CurrentDesktop
 
     _createEnoughDesktops(targetDesktop)
 

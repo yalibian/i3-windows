@@ -22,6 +22,10 @@
 ; === END OF INSTRUCTIONS ===
 ; ===========================
 
+; `toggleDesktop` causes switchDesktopByNumber to switch back to the previous
+; desktop if called with the currently active desktop.
+ToggleDesktop := false
+
 #1::switchDesktopByNumber(1)
 #2::switchDesktopByNumber(2)
 #3::switchDesktopByNumber(3)
